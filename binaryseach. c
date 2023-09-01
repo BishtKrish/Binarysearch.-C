@@ -1,0 +1,61 @@
+#include<stdio.h>
+main()
+{
+    int ar[100],i,j,temp,num,f,low=0,src,high,mid=0,z;
+
+    
+
+    printf("Enter the no. of elements: ");
+    scanf("%d",&num);
+    for(i=0;i<num;++i)
+    {
+        printf("Enter %dth element: ",i+1);
+        scanf("%d",&ar[i]);
+    }
+
+    
+
+      for(i=0;i<num;++i)
+      {
+            for(j=0;j<num;++j)
+            {
+                if(ar[i]<ar[j])
+                {
+                    temp=ar[i];
+                    ar[i]=ar[j];
+                    ar[j]=temp;
+                 }
+            }
+      }
+        printf("The array is: ");
+     for(i=0;i<num;++i)
+    {
+      printf("%d ",ar[i]);
+    }  high=num;
+     printf("\n\nEnter the element for search: ");
+     scanf("%d",&src);
+     high=num;
+     while(low<high)
+     {
+         mid=low + (high-low)/2;
+         if(ar[mid]==src)
+         {
+             f=1;
+             z=mid;
+             break;
+         }
+         if(ar[mid]<src)
+         {
+             low=mid+1;
+         }
+         else
+         {
+             high=mid-1;
+         }
+     }
+       if(f==1)
+        printf("%d found at index: %d",src,z);
+      else
+        printf("%d  not found in the array...",src);
+return 0;
+}
